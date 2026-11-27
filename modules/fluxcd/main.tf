@@ -4,5 +4,5 @@ resource "flux_bootstrap_git" "fluxcd" {
   embedded_manifests = each.value.embedded_manifests
   path               = each.value.path
   version            = each.value.version
-  kustomization_override =  try(file(each.value.values), null)
+  kustomization_override =  file(each.value.values)
 }
